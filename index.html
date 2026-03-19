@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX ELITE — Premium Fitness Club</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@300;400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- Loader -->
+<div id="loader">
+  <div class="loader-logo">APEX</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- Trial Popup -->
+<div id="trial-popup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()"><i class="fa-solid fa-xmark"></i></button>
+    <h2>Free Trial</h2>
+    <p>Experience APEX ELITE for 7 days — absolutely free. No commitment, no hidden charges. Just results.</p>
+    <form class="popup-form" onsubmit="submitTrial(event)">
+      <div class="p-group"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+      <div class="p-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+      <div class="p-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <button type="submit" class="btn-popup"><i class="fa-solid fa-dumbbell"></i> &nbsp;Claim Free Trial</button>
+    </form>
+  </div>
+</div>
+
+<!-- Notification Bar -->
+<div id="notif">
+  <i class="fa-solid fa-fire"></i>&nbsp;
+  LIMITED OFFER — <span class="countdown-inline">20% OFF</span> All Memberships This Week. Ends in: <span id="countdown">48:00:00</span>
+  &nbsp;<i class="fa-solid fa-fire"></i>
+  <span class="notif-close" onclick="this.parentElement.style.display='none'">✕</span>
+</div>
+
+<!-- Navbar -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo"><div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>APEX ELITE</a>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#membership">Plans</a>
+      <a href="#training">Trainers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="javascript:void(0)" class="nav-cta" onclick="openPopup()">Free Trial</a>
+    </div>
+    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </div>
+  <div id="mob-menu">
+    <a href="#home" onclick="toggleMob()">Home</a>
+    <a href="#about" onclick="toggleMob()">About</a>
+    <a href="#membership" onclick="toggleMob()">Membership</a>
+    <a href="#training" onclick="toggleMob()">Trainers</a>
+    <a href="#gallery" onclick="toggleMob()">Gallery</a>
+    <a href="#testimonials" onclick="toggleMob()">Testimonials</a>
+    <a href="#bmi" onclick="toggleMob()">BMI Calc</a>
+    <a href="#contact" onclick="toggleMob()">Contact</a>
+    <a href="javascript:void(0)" onclick="openPopup();toggleMob()" style="color:var(--gold)">→ Book Free Trial</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span>Premium Fitness Club — Est. 2014</span></div>
+    <h1 class="hero-title">
+      <span class="line1">Elite Fitness</span>
+      <span class="line2">Experience</span>
+    </h1>
+    <p class="hero-sub">Where discipline meets luxury. Train with the best, transform with purpose, and achieve what others only dream of.</p>
+    <div class="hero-btns">
+      <a href="#membership" class="btn btn-gold"><i class="fa-solid fa-crown"></i> Join Now</a>
+      <button class="btn btn-ghost" onclick="openPopup()"><i class="fa-solid fa-dumbbell"></i> Book Free Trial</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num">500+</div><div class="stat-label">Elite Members</div></div>
+      <div class="hero-stat"><div class="stat-num">15+</div><div class="stat-label">Expert Trainers</div></div>
+      <div class="hero-stat"><div class="stat-num">10K+</div><div class="stat-label">Sessions Delivered</div></div>
+      <div class="hero-stat"><div class="stat-num">98%</div><div class="stat-label">Satisfaction Rate</div></div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-stack reveal-left">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=700&q=80" alt="Gym interior" class="about-img-main">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80" alt="Training" class="about-img-accent">
+        <div class="about-img-badge"><strong>10</strong><span>Years of Excellence</span></div>
+      </div>
+      <div class="about-content reveal-right">
+        <div><div class="section-label"><span>Our Story</span></div>
+        <h2 class="section-title">Not Just A<br><em>Gym.</em></h2>
+        <div class="divider"></div>
+        <p class="section-sub">APEX ELITE was founded with one conviction — that premium fitness deserves a premium environment. We built a space where elite athletes and ambitious beginners alike are pushed to their absolute potential.</p></div>
+        <div class="about-feature">
+          <div class="feat-icon"><i class="fa-solid fa-dumbbell"></i></div>
+          <div class="feat-text"><h4>World-Class Equipment</h4><p>500+ machines from Technogym and Life Fitness. The same equipment used by professional athletes worldwide.</p></div>
+        </div>
+        <div class="about-feature">
+          <div class="feat-icon"><i class="fa-solid fa-user-shield"></i></div>
+          <div class="feat-text"><h4>Exclusive, Private Zones</h4><p>Members-only areas, VIP locker rooms, sauna & steam facilities, and a private rooftop terrace.</p></div>
+        </div>
+        <div class="about-feature">
+          <div class="feat-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="feat-text"><h4>Elite Community</h4><p>Join 500+ like-minded individuals driven by discipline, performance, and continuous self-improvement.</p></div>
+        </div>
+        <div class="awards">
+          <div class="award-badge"><i class="fa-solid fa-trophy"></i><span>Best Gym 2023</span></div>
+          <div class="award-badge"><i class="fa-solid fa-medal"></i><span>Top Trainer Award</span></div>
+          <div class="award-badge"><i class="fa-solid fa-gem"></i><span>Luxury Fitness</span></div>
+          <div class="award-badge"><i class="fa-solid fa-certificate"></i><span>ISO Certified</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section id="membership">
+  <div class="container">
+    <div class="section-label reveal"><span>Investment in Yourself</span></div>
+    <h2 class="section-title reveal">Membership <em>Plans</em></h2>
+    <p class="section-sub reveal">Choose the tier that matches your ambition. All plans include 24/7 access, locker room, and group classes.</p>
+    <div class="plans-grid reveal">
+      <!-- Silver -->
+      <div class="plan-card">
+        <div class="plan-tier">Silver</div>
+        <div class="plan-name">STARTER</div>
+        <div class="plan-price">
+          <span class="currency">₹</span>
+          <span class="amount">2,499</span>
+          <span class="per"> / month</span>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> 24/7 Gym Access</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> All Cardio & Free Weights</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Group Classes (10/month)</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Locker Room Access</div>
+          <div class="plan-feat inactive"><i class="fa-solid fa-xmark"></i> Personal Trainer</div>
+          <div class="plan-feat inactive"><i class="fa-solid fa-xmark"></i> Diet & Nutrition Plan</div>
+          <div class="plan-feat inactive"><i class="fa-solid fa-xmark"></i> Sauna & Steam</div>
+          <div class="plan-feat inactive"><i class="fa-solid fa-xmark"></i> VIP Lounge Access</div>
+        </div>
+        <button class="btn-plan" onclick="openPopup()">Get Started</button>
+      </div>
+      <!-- Gold -->
+      <div class="plan-card featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-tier">Gold</div>
+        <div class="plan-name">PERFORMANCE</div>
+        <div class="plan-price">
+          <span class="currency">₹</span>
+          <span class="amount">4,999</span>
+          <span class="per"> / month</span>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> 24/7 Gym Access</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> All Equipment & Zones</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Unlimited Group Classes</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> 4 Personal Training Sessions</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Custom Diet Plan</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Sauna & Steam</div>
+          <div class="plan-feat inactive"><i class="fa-solid fa-xmark"></i> VIP Lounge Access</div>
+          <div class="plan-feat inactive"><i class="fa-solid fa-xmark"></i> Guest Passes</div>
+        </div>
+        <button class="btn-plan" onclick="openPopup()">Choose Gold</button>
+      </div>
+      <!-- Platinum -->
+      <div class="plan-card">
+        <div class="plan-tier">Platinum</div>
+        <div class="plan-name">ELITE</div>
+        <div class="plan-price">
+          <span class="currency">₹</span>
+          <span class="amount">8,999</span>
+          <span class="per"> / month</span>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> 24/7 Exclusive Access</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> All Equipment + VIP Zones</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Unlimited Group Classes</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Unlimited Personal Training</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Full Diet & Supplement Plan</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> Sauna, Steam & Spa</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> VIP Lounge & Rooftop</div>
+          <div class="plan-feat active"><i class="fa-solid fa-check"></i> 5 Guest Passes / Month</div>
+        </div>
+        <button class="btn-plan" onclick="openPopup()">Go Platinum</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS -->
+<section id="training">
+  <div class="container">
+    <div class="section-label reveal"><span>Expert Coaches</span></div>
+    <h2 class="section-title reveal">Your <em>Trainers</em></h2>
+    <p class="section-sub reveal">World-class coaches with verified credentials and proven transformation records.</p>
+  </div>
+  <div style="max-width:1280px;margin:60px auto 0;padding:0 40px">
+    <div class="trainers-grid">
+      <div class="trainer-card reveal">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80" alt="Trainer" class="trainer-img">
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Vikram Rathore</div>
+          <div class="trainer-spec">Strength & Powerlifting</div>
+          <div class="trainer-exp"><i class="fa-solid fa-medal"></i> 12 Years · ISSA Certified</div>
+          <div class="trainer-tags"><span class="tag">Powerlifting</span><span class="tag">Hypertrophy</span><span class="tag">Sports</span></div>
+          <div class="trainer-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=500&q=80" alt="Trainer" class="trainer-img">
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Arjun Mehra</div>
+          <div class="trainer-spec">Fat Loss & Conditioning</div>
+          <div class="trainer-exp"><i class="fa-solid fa-medal"></i> 9 Years · NASM Certified</div>
+          <div class="trainer-tags"><span class="tag">Weight Loss</span><span class="tag">HIIT</span><span class="tag">Boxing</span></div>
+          <div class="trainer-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=500&q=80" alt="Trainer" class="trainer-img">
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Preethi Nair</div>
+          <div class="trainer-spec">Yoga & Functional Fitness</div>
+          <div class="trainer-exp"><i class="fa-solid fa-medal"></i> 8 Years · ACE Certified</div>
+          <div class="trainer-tags"><span class="tag">Yoga</span><span class="tag">Mobility</span><span class="tag">Prenatal</span></div>
+          <div class="trainer-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80" alt="Trainer" class="trainer-img">
+        <div class="trainer-overlay"></div>
+        <div class="trainer-info">
+          <div class="trainer-name">Rohit Sharma</div>
+          <div class="trainer-spec">Bodybuilding & Physique</div>
+          <div class="trainer-exp"><i class="fa-solid fa-medal"></i> 14 Years · IFBB Pro</div>
+          <div class="trainer-tags"><span class="tag">Bodybuilding</span><span class="tag">Nutrition</span><span class="tag">Contest Prep</span></div>
+          <div class="trainer-socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATIONS -->
+<section id="transformations">
+  <div class="container">
+    <div class="section-label reveal"><span>Real Results</span></div>
+    <h2 class="section-title reveal">Member <em>Transformations</em></h2>
+    <p class="section-sub reveal">These aren't filters or lighting tricks. These are real people, real work, real results.</p>
+    <div class="transforms-grid">
+      <div class="transform-card reveal">
+        <div style="position:relative">
+          <div class="transform-images">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&q=80" alt="Before">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=300&q=80" alt="After">
+          </div>
+          <span class="before-label">Before</span>
+          <span class="after-label">After</span>
+        </div>
+        <div class="transform-info">
+          <div class="transform-name">Rahul Kapoor, 31</div>
+          <div class="transform-stats">
+            <div class="t-stat"><strong>-22 KG</strong><span>Lost</span></div>
+            <div class="t-stat"><strong>6 Mo</strong><span>Duration</span></div>
+            <div class="t-stat"><strong>18%</strong><span>Fat Lost</span></div>
+          </div>
+          <p class="transform-quote">"APEX changed my life. From 94kg to 72kg in 6 months. The trainers kept me accountable every single day."</p>
+        </div>
+      </div>
+      <div class="transform-card reveal">
+        <div style="position:relative">
+          <div class="transform-images">
+            <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=300&q=80" alt="Before">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&q=80" alt="After">
+          </div>
+          <span class="before-label">Before</span>
+          <span class="after-label">After</span>
+        </div>
+        <div class="transform-info">
+          <div class="transform-name">Samir Khan, 26</div>
+          <div class="transform-stats">
+            <div class="t-stat"><strong>+8 KG</strong><span>Muscle</span></div>
+            <div class="t-stat"><strong>4 Mo</strong><span>Duration</span></div>
+            <div class="t-stat"><strong>-8%</strong><span>Body Fat</span></div>
+          </div>
+          <p class="transform-quote">"Went from skinny to aesthetic. Rohit's programming and Apex's environment made the impossible possible."</p>
+        </div>
+      </div>
+      <div class="transform-card reveal">
+        <div style="position:relative">
+          <div class="transform-images">
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=300&q=80" alt="Before">
+            <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=300&q=80" alt="After">
+          </div>
+          <span class="before-label">Before</span>
+          <span class="after-label">After</span>
+        </div>
+        <div class="transform-info">
+          <div class="transform-name">Neha Tiwari, 28</div>
+          <div class="transform-stats">
+            <div class="t-stat"><strong>-15 KG</strong><span>Lost</span></div>
+            <div class="t-stat"><strong>5 Mo</strong><span>Duration</span></div>
+            <div class="t-stat"><strong>12%</strong><span>Fat Lost</span></div>
+          </div>
+          <p class="transform-quote">"Preethi's training approach was transformative. I feel stronger, more confident, and genuinely happy."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label reveal"><span>Inside APEX</span></div>
+    <h2 class="section-title reveal">The <em>Gallery</em></h2>
+  </div>
+  <div style="max-width:1280px;margin:0 auto;padding:0 40px">
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Gym"><div class="gallery-item-overlay"><i class="fa-solid fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Gym"><div class="gallery-item-overlay"><i class="fa-solid fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80" alt="Training"><div class="gallery-item-overlay"><i class="fa-solid fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=400&q=80" alt="Equipment"><div class="gallery-item-overlay"><i class="fa-solid fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80" alt="Session"><div class="gallery-item-overlay"><i class="fa-solid fa-expand"></i></div></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80" alt="Cardio"><div class="gallery-item-overlay"><i class="fa-solid fa-expand"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-label reveal"><span>Member Reviews</span></div>
+    <h2 class="section-title reveal">What Members <em>Say</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">APEX is not a gym. It's a lifestyle upgrade. The moment you walk through those doors, you feel the difference. Every machine, every trainer, every detail is premium.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Member">
+          <div><strong>Aditya Bose</strong><span>Platinum Member · 2 Years</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Rohit helped me prep for my first bodybuilding competition. His knowledge, discipline, and care were extraordinary. I placed 2nd in my debut. APEX made that possible.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Member">
+          <div><strong>Karan Singh</strong><span>Gold Member · 18 Months</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">As a busy executive, I needed efficiency and results. With 5AM access, a dedicated trainer, and a nutrition plan, I lost 18 kg in 5 months without disrupting my schedule.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&q=80" alt="Member">
+          <div><strong>Manish Gupta</strong><span>Platinum Member · 3 Years</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Preethi's yoga and mobility sessions cured my chronic back pain in 8 weeks. I've been to 6 gyms in my life — APEX is on a completely different level.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Member">
+          <div><strong>Deepa Krishnan</strong><span>Gold Member · 1 Year</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">The sauna, VIP lounge, and the energy of this place are incomparable. After every session I feel like a champion. Worth every rupee of the Platinum plan.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Member">
+          <div><strong>Sunaina Rao</strong><span>Platinum Member · 2.5 Years</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Vikram's powerlifting coaching took my deadlift from 80 kg to 160 kg in 7 months. He programs intelligently, pushes hard, and genuinely cares about your progress.</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80" alt="Member">
+          <div><strong>Riya Mehta</strong><span>Gold Member · 14 Months</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BMI CALCULATOR -->
+<section id="bmi">
+  <div class="container">
+    <div class="bmi-wrap">
+      <div class="bmi-info reveal-left">
+        <div class="section-label"><span>Know Your Numbers</span></div>
+        <h2 class="section-title">BMI <em>Calculator</em></h2>
+        <div class="divider"></div>
+        <p>Your Body Mass Index is a starting point. Use it to understand where you are — our trainers will show you where you can go.</p>
+        <div class="bmi-cats">
+          <div class="bmi-cat-item"><div class="cat-color" style="background:#4ECDC4"></div><span>Underweight</span><strong>Below 18.5</strong></div>
+          <div class="bmi-cat-item"><div class="cat-color" style="background:#C9A84C"></div><span>Normal Weight</span><strong>18.5 – 24.9</strong></div>
+          <div class="bmi-cat-item"><div class="cat-color" style="background:#E89A3C"></div><span>Overweight</span><strong>25 – 29.9</strong></div>
+          <div class="bmi-cat-item"><div class="cat-color" style="background:#E74C3C"></div><span>Obese</span><strong>30 and above</strong></div>
+        </div>
+      </div>
+      <div class="bmi-form reveal-right">
+        <h3>Calculate Your BMI</h3>
+        <div class="bmi-inputs">
+          <div class="bmi-group"><label>Height (cm)</label><input type="number" id="height" placeholder="e.g. 175" min="100" max="250"></div>
+          <div class="bmi-group"><label>Weight (kg)</label><input type="number" id="weight" placeholder="e.g. 72" min="30" max="300"></div>
+        </div>
+        <div class="bmi-group" style="margin-bottom:20px"><label>Age</label><input type="number" id="age" placeholder="e.g. 28" min="10" max="100"></div>
+        <button class="btn-bmi" onclick="calcBMI()">Calculate BMI</button>
+        <div class="bmi-result" id="bmi-result">
+          <div class="bmi-val" id="bmi-val">—</div>
+          <div class="bmi-cat" id="bmi-cat">—</div>
+          <div class="bmi-bar"><div class="bmi-fill" id="bmi-fill"></div></div>
+          <p style="font-size:.78rem;color:var(--muted);margin-top:12px;line-height:1.65" id="bmi-advice"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal"><span>Find Us</span></div>
+    <h2 class="section-title reveal">Get In <em>Touch</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="c-info-item">
+          <div class="c-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div><h4>Location</h4><p>Plot 12A, VIP Road, Shivaji Nagar<br>Bhopal, Madhya Pradesh – 462016</p></div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div><h4>Phone</h4><p><a href="tel:+911234567890">+91 12345 67890</a></p><p style="margin-top:4px"><a href="tel:+919876543210">+91 98765 43210 (WhatsApp)</a></p></div>
+        </div>
+        <div class="c-info-item">
+          <div class="c-info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div><h4>Email</h4><p><a href="mailto:hello@apexelite.in">hello@apexelite.in</a></p></div>
+        </div>
+        <div>
+          <div style="font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">Gym Hours</div>
+          <div class="hours-grid">
+            <div class="hour-row" style="grid-column:span 2"><span>Monday – Friday</span><span>5:00 AM – 11:00 PM</span></div>
+            <div class="hour-row" style="grid-column:span 2"><span>Saturday</span><span>6:00 AM – 10:00 PM</span></div>
+            <div class="hour-row" style="grid-column:span 2"><span>Sunday</span><span>7:00 AM – 8:00 PM</span></div>
+          </div>
+        </div>
+        <div class="map-box">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117620.37219284!2d77.34023!3d23.2599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <h3>Send A Message</h3>
+        <div class="c-form-group"><label>Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="c-form-group"><label>Phone Number</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="c-form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="c-form-group"><label>Interested In</label>
+          <input type="text" placeholder="e.g. Platinum membership, Personal training">
+        </div>
+        <div class="c-form-group"><label>Message</label><textarea placeholder="Tell us your goal or ask anything..."></textarea></div>
+        <button class="btn-contact" onclick="submitContact(event)"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>APEX ELITE</div>
+      <p>India's most premium fitness club, where discipline meets luxury and ordinary people achieve extraordinary results.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About APEX</a></li>
+        <li><a href="#membership">Membership Plans</a></li>
+        <li><a href="#training">Personal Training</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#training">Strength Training</a></li>
+        <li><a href="#training">Fat Loss Programs</a></li>
+        <li><a href="#training">Yoga & Mobility</a></li>
+        <li><a href="#training">Nutrition Coaching</a></li>
+        <li><a href="#training">Contest Prep</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="javascript:void(0)" onclick="openPopup()">Book Free Trial</a></li>
+        <li><a href="#bmi">BMI Calculator</a></li>
+        <li><a href="#testimonials">Member Reviews</a></li>
+        <li><a href="#transformations">Transformations</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom" style="color:var(--muted)">
+    <span>© 2024 APEX ELITE FITNESS CLUB. ALL RIGHTS RESERVED.</span>
+    <span>BHOPAL, MADHYA PRADESH, INDIA</span>
+  </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floats">
+  <button class="float-btn scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up" style="color:var(--black)"></i></button>
+  <a href="https://wa.me/919876543210" target="_blank"><button class="float-btn fa-whatsapp-float"><i class="fa-brands fa-whatsapp"></i></button></a>
+</div>
+
+<script>
+/* ── Loader ── */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').style.opacity='0';
+    setTimeout(()=>document.getElementById('loader').style.display='none',500);
+  },2400);
+});
+
+/* ── Custom Cursor ── */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx-6+'px';cur.style.top=my-6+'px'});
+function animRing(){rx+=(mx-rx-20)*.12;ry+=(my-ry-20)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}animRing();
+document.querySelectorAll('a,button,.plan-card,.trainer-card,.gallery-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.transform='scale(1.6)';ring.style.opacity='.8'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.transform='scale(1)';ring.style.opacity='.5'});
+});
+
+/* ── Navbar ── */
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',scrollY>30);
+  document.getElementById('scrollTopBtn').classList.toggle('show',scrollY>500);
+  // active nav
+  let cur2='';
+  document.querySelectorAll('section[id]').forEach(s=>{if(scrollY>=s.offsetTop-100)cur2=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur2));
+});
+function toggleMob(){document.getElementById('mob-menu').classList.toggle('open')}
+
+/* ── Smooth links ── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}});
+});
+
+/* ── Intersection Observer ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach((el,i)=>{
+  el.style.transitionDelay=(i%6*.08)+'s';
+  obs.observe(el);
+});
+
+/* ── Popup ── */
+function openPopup(){document.getElementById('trial-popup').classList.add('open');document.body.style.overflow='hidden'}
+function closePopup(){document.getElementById('trial-popup').classList.remove('open');document.body.style.overflow=''}
+document.getElementById('trial-popup').addEventListener('click',e=>{if(e.target===e.currentTarget)closePopup()});
+function submitTrial(e){e.preventDefault();const b=e.target.querySelector('button');b.innerHTML='<i class="fa-solid fa-check"></i> &nbsp;Booked! We\'ll call you.';b.style.background='#27AE60';setTimeout(closePopup,2000)}
+// Auto popup after 12s
+setTimeout(()=>{if(!sessionStorage.getItem('popupShown')){openPopup();sessionStorage.setItem('popupShown','1')}},12000);
+
+/* ── BMI Calculator ── */
+function calcBMI(){
+  const h=parseFloat(document.getElementById('height').value);
+  const w=parseFloat(document.getElementById('weight').value);
+  if(!h||!w||h<100||w<30){alert('Please enter valid height and weight.');return}
+  const bmi=(w/((h/100)**2)).toFixed(1);
+  let cat,color,pct,advice;
+  if(bmi<18.5){cat='Underweight';color='#4ECDC4';pct=15;advice='You are below healthy weight. Our trainers can build a muscle-gain program tailored specifically for you.'}
+  else if(bmi<25){cat='Normal Weight';color='#C9A84C';pct=42;advice='Great! You\'re in the healthy range. Our trainers can help you optimize performance and build an athletic physique.'}
+  else if(bmi<30){cat='Overweight';color='#E89A3C';pct=68;advice='With the right program and nutrition, you can reach your ideal weight. Our fat-loss specialists are ready for you.'}
+  else{cat='Obese';color='#E74C3C';pct=90;advice='Our medically-informed coaches specialize in safe, effective fat loss. Let\'s get you on the right path — book a free consultation.'}
+  document.getElementById('bmi-val').textContent=bmi;
+  document.getElementById('bmi-cat').textContent=cat;
+  document.getElementById('bmi-fill').style.width=pct+'%';
+  document.getElementById('bmi-fill').style.background=color;
+  document.getElementById('bmi-advice').textContent=advice;
+  const r=document.getElementById('bmi-result');r.classList.add('show');
+}
+
+/* ── Countdown Timer ── */
+(function countDown(){
+  const end=new Date(Date.now()+48*60*60*1000);
+  setInterval(()=>{
+    const diff=end-Date.now();
+    if(diff<=0){document.getElementById('countdown').textContent='EXPIRED';return}
+    const h=Math.floor(diff/3600000).toString().padStart(2,'0');
+    const m=Math.floor((diff%3600000)/60000).toString().padStart(2,'0');
+    const s=Math.floor((diff%60000)/1000).toString().padStart(2,'0');
+    document.getElementById('countdown').textContent=h+':'+m+':'+s;
+  },1000);
+})();
+
+/* ── Contact form feedback ── */
+function submitContact(e){
+  const b=e.target;
+  b.innerHTML='<i class="fa-solid fa-check"></i> Message Sent!';
+  b.style.background='#27AE60';
+  setTimeout(()=>{b.innerHTML='<i class="fa-solid fa-paper-plane"></i> Send Message';b.style.background=''},3000);
+}
+</script>
+</body>
+</html>
